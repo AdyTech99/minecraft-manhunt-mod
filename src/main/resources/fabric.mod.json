@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "minecraft-manhunt",
+	"version": "1.0.0",
+	"name": "Minecraft-Manhunt",
+	"description": "Recreates the compass from Minecraft Manhunt",
+	"authors": [
+		"AdyTech99"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "Apache License 2.0",
+	"icon": "assets/minecraft-manhunt/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.adytechmc.mcmanhunt.MinecraftManhunt"
+		],
+		"fabric-datagen": [
+			"com.adytechmc.mcmanhunt.MinecraftManhuntDataGenerator"
+		]
+	},
+	"mixins": [
+		"minecraft-manhunt.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.20",
+		"minecraft": "~1.20",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
