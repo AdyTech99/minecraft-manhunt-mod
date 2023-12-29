@@ -3,7 +3,7 @@
 	"package": "com.adytechmc.mcmanhunt.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"CompassMixin"
+		"ExampleMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

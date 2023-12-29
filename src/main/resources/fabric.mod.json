@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
-	"id": "minecraft-manhunt",
-	"version": "1.0.0",
+	"id": "manhunt-compass",
+	"version": "1.1",
 	"name": "Minecraft-Manhunt",
 	"description": "Recreates the compass from Minecraft Manhunt",
 	"authors": [
@@ -17,19 +17,16 @@
 	"entrypoints": {
 		"main": [
 			"com.adytechmc.mcmanhunt.MinecraftManhunt"
-		],
-		"fabric-datagen": [
-			"com.adytechmc.mcmanhunt.MinecraftManhuntDataGenerator"
 		]
 	},
 	"mixins": [
 		"minecraft-manhunt.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.20",
-		"minecraft": "~1.20",
-		"java": ">=17",
-		"fabric-api": "*"
+		"fabricloader": ">=0.13.3",
+		"minecraft": "~1.16",
+		"java": ">=16",
+		"fabric": "*"
 	},
 	"suggests": {
 		"another-mod": "*"

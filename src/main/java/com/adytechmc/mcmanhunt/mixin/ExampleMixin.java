@@ -8,10 +8,11 @@ import net.minecraft.nbt.NbtHelper;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.registry.RegistryKey;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
-import net.minecraft.world.poi.PointOfInterestTypes;
+import net.minecraft.world.poi.PointOfInterestType;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -28,7 +29,7 @@ public class ExampleMixin {
         ci.cancel();
         if (!world.isClient) {
             if (hasLodestone(stack)) {
-                NbtCompound nbtCompound = stack.getOrCreateNbt();
+                NbtCompound nbtCompound = stack.getOrCreateTag();
                 if (nbtCompound.contains("LodestoneTracked") && !nbtCompound.getBoolean("LodestoneTracked")) {
                     return;
                 }
@@ -37,9 +38,9 @@ public class ExampleMixin {
                 if (optional.isPresent() && optional.get() == world.getRegistryKey() && nbtCompound.contains("LodestonePos")) {
                     BlockPos blockPos = NbtHelper.toBlockPos(nbtCompound.getCompound("LodestonePos"));
                     // Remove the code
-                    if (!world.isInBuildLimit(blockPos) || !((ServerWorld)world).getPointOfInterestStorage().hasTypeAt(PointOfInterestTypes.LODESTONE, blockPos)) {
-                        if(stack.hasNbt()) {
-                            if (!stack.getNbt().contains("IsPlayerTracker")) {
+                    if (!world.isInBuildLimit(blockPos) || !((ServerWorld)world).getPointOfInterestStorage().hasTypeAt(PointOfInterestType.LODESTONE, blockPos)) {
+                        if(stack.hasTag()) {
+                            if (!stack.getTag().contains("IsPlayerTracker")) {
                                 nbtCompound.remove("LodestonePos");
                             }
                         }
@@ -49,6 +50,7 @@ public class ExampleMixin {
         }
     }
 
+    @Unique
     private static Optional<RegistryKey<World>> getLodestoneDimension(NbtCompound nbt) {
         return World.CODEC.parse(NbtOps.INSTANCE, nbt.get("LodestoneDimension")).result();
     }

@@ -44,7 +44,7 @@ public class UUIDFetcher {
         UUID uuid = null;
         for(PlayerEntity player : world.getPlayers()){
             if(player.getName().toString().equalsIgnoreCase(name)){
-                player.sendMessage(Text.literal("THIS WORKS!!"));
+                player.sendMessage(Text.of("THIS WORKS!!"), false);
                 return player.getUuid();
             }
         }
