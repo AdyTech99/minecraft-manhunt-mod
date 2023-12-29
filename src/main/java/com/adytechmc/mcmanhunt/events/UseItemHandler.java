@@ -27,10 +27,9 @@ public class UseItemHandler implements UseItemCallback {
             if (player.getStackInHand(hand).getItem() == Items.COMPASS && player.getStackInHand(hand).getNbt().contains("IsPlayerTracker") && !world.isClient()) {
                 PlayerEntity runner;
                 runner = MinecraftManhunt.runners.getClosestRunner(player, world);
-                player.sendMessage(Text.of("Now tracking " + runner.getName()));
-                if (runner == null) {
-                    player.sendMessage(Text.literal("This guy is null, abort"));
-                }
+                String messageString  = "Now tracking " + runner.getEntityName();
+                player.sendMessage(Text.of((messageString)));
+                if (runner == null) player.sendMessage(Text.literal("This guy is null, abort"));
                 //KnifeMod.getServerWorldFromWorld(world).setSpawnPos(runner.getBlockPos(), runner.bodyYaw);
                 ItemStack compass = player.getStackInHand(hand);
                 player.setStackInHand(hand, pointCompassToPlayer(runner, compass));
@@ -51,7 +50,7 @@ public class UseItemHandler implements UseItemCallback {
         Objects.requireNonNull(var10001);
         var10000.resultOrPartial(var10001::error).ifPresent((nbtElement) -> {
             tag.put("LodestoneDimension", nbtElement);
-            //targetPlayer.sendMessage(Text.literal(String.valueOf(nbtElement))); // For Debugging. Correct Dimension is put :).
+            //targetPlayer.sendMessage(Text.literal(String.valueOf(nbtElement))); // For Debugging. Correct Dimension is put confirmed :).
         });
         tag.putBoolean("LodestoneTracked", true); //This should work. It's a literal boolean.
         //targetPlayer.sendMessage(Text.literal(String.valueOf(compass.getNbt())));
