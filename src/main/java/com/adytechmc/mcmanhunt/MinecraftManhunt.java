@@ -49,7 +49,6 @@ public class MinecraftManhunt implements ModInitializer {
 								String playerName = StringArgumentType.getString(context, "player");
 								addRunner(playerName);
 								context.getSource().getPlayer().sendMessage(Text.of("Runner added"), true);
-								//context.getSource().sendMessage(Text.literal("Runners: " + name));
 								return 1;
 							})));
 
