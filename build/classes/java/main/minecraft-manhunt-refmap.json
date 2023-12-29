@@ -1,0 +1,20 @@
+{
+  "mappings": {
+    "com/adytechmc/mcmanhunt/mixin/CompassMixin": {
+      "inventoryTick": "Lnet/minecraft/class_1759;method_7888(Lnet/minecraft/class_1799;Lnet/minecraft/class_1937;Lnet/minecraft/class_1297;IZ)V"
+    },
+    "com/adytechmc/mcmanhunt/mixin/ExampleMixin": {
+      "inventoryTick": "Lnet/minecraft/class_1759;method_7888(Lnet/minecraft/class_1799;Lnet/minecraft/class_1937;Lnet/minecraft/class_1297;IZ)V"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "com/adytechmc/mcmanhunt/mixin/CompassMixin": {
+        "inventoryTick": "Lnet/minecraft/class_1759;method_7888(Lnet/minecraft/class_1799;Lnet/minecraft/class_1937;Lnet/minecraft/class_1297;IZ)V"
+      },
+      "com/adytechmc/mcmanhunt/mixin/ExampleMixin": {
+        "inventoryTick": "Lnet/minecraft/class_1759;method_7888(Lnet/minecraft/class_1799;Lnet/minecraft/class_1937;Lnet/minecraft/class_1297;IZ)V"
+      }
+    }
+  }
+}
